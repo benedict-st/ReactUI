@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { displayDate } from "../../utils/displayDate";
 import Api from "../../api";
 const Comment = ({
-    comment,
+    content,
     created_at: created,
     _id: id,
     userId,
@@ -47,6 +47,7 @@ const Comment = ({
                                             <span className="small">
                                                 {displayDate(created)}
                                             </span>
+
                                             <button
                                                 className="btn btn-sm text-primary d-flex align-items-center"
                                                 onClick={() => onRemove(id)}
@@ -54,7 +55,7 @@ const Comment = ({
                                                 <i className="bi bi-x-lg"></i>
                                             </button>
                                         </div>
-                                        <p className="small mb-0">{comment}</p>
+                                        <p className="small mb-0">{content}</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +67,7 @@ const Comment = ({
     );
 };
 Comment.propTypes = {
-    comment: PropTypes.string,
+    content: PropTypes.string,
     edited_at: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     created_at: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     userId: PropTypes.string,

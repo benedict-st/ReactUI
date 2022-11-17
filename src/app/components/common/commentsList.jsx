@@ -16,11 +16,9 @@ const CommentsList = ({ userId }) => {
             .then((id) => setComments(comments.filter((x) => x._id !== id)));
     };
     const handleSubmit = (data) => {
-        console.log(data);
         api.comments
             .add({ ...data, pageId: userId })
             .then((data) => setComments([...comments, data]));
-        console.log("comments", comments);
     };
     if (comments) {
         return (
